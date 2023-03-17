@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:system_app/screen/provider/screen_provider.dart';
 
+import '../uisetting/view/i_setting_screen.dart';
+
 class ui_screen extends StatefulWidget {
   const ui_screen({Key? key}) : super(key: key);
 
@@ -11,11 +13,11 @@ class ui_screen extends StatefulWidget {
 }
 
 class _ui_screenState extends State<ui_screen> {
- Screen_provider?screen_provider,screen_providert;
+ Screen_provider?at,a;
   @override
   Widget build(BuildContext context) {
-   screen_provider = Provider.of(context, listen: true);
-    screen_providert = Provider.of(context, listen: false);
+   at = Provider.of(context, listen: true);
+    a = Provider.of(context, listen: false);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -93,8 +95,10 @@ class _ui_screenState extends State<ui_screen> {
                 title: Text("Lock app in background"),
                 trailing: Switch(
                   activeColor: Colors.red.shade700,
-                  value: screen_providert!.onOff3,
-                  onChanged: (value) =>screen_provider!.onClick3(value),
+                  onChanged: (bool value) {
+                    at!.change3(value);
+                  },
+                  value: at!.a3,
                 ),
               ),
 
@@ -104,8 +108,10 @@ class _ui_screenState extends State<ui_screen> {
                 title: Text("Use fingerprint"),
                 trailing: Switch(
                   activeColor: Colors.red.shade700,
-                  value: screen_providert!.onOff,
-                  onChanged: (value) => screen_provider!.onClick(value),
+                  onChanged: ( value) {
+                    a!.change1(value);
+                  },
+                  value: at!.a1,
                 ),
               ),
               SizedBox(height: 10),
@@ -114,8 +120,10 @@ class _ui_screenState extends State<ui_screen> {
                 title: Text("Change password"),
                 trailing: Switch(
                   activeColor: Colors.red.shade700,
-                  value: screen_providert!.onOff2,
-                  onChanged: (value) => screen_provider!.onClick2(value),
+                  onChanged: (bool value) {
+                    at!.change2(value);
+                  },
+                  value: at!.a2,
                 ),
               ),
               SizedBox(height: 10),

@@ -3,24 +3,23 @@ import 'package:flutter/cupertino.dart';
 class Screen_provider extends ChangeNotifier
 {
 
-  bool onOff = false;
-  bool onOff2 = false;
-  bool onOff3 = false;
+  bool a1 = true;
+  bool a2 = false;
+  bool a3 = true;
 
-  void onClick(bool value)
+  void change1(bool s)
   {
-  onOff = value;
+  a1 = s;
+  notifyListeners();
+  }void change2(bool c)
+  {
+  a2 = c;
   notifyListeners();
   }
-  void onClick2(bool value)
+  void change3(bool b)
   {
-  onOff2 = value;
+  a3 = b;
   notifyListeners();
-  }
 
-  void onClick3(bool value)
-  {
-  onOff3 = value;
-  notifyListeners();
   }
 }
